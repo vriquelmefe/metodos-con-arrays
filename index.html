@@ -169,8 +169,6 @@
   newPaula.hora = "08:00";
 
   traumatologia[indiceDePaula] = newPaula;
-
-  console.log(traumatologia);
   //ordeno pacientes por orden de hora
   traumatologia.sort(function(horaA, horaB) {
     if (horaA.hora > horaB.hora) {
@@ -190,25 +188,12 @@
     document.write(`<p>${[consulta.hora, consulta.especialista, consulta.paciente, consulta.rut, consulta.prevision].join(' - ')} </p>`);
   });
 
-  // dental.forEach((pacientes) => {
-  //   const pacienteDental = dental;
-  //   //console.log(pacientes);
-  //   document.write(`<p> 
-  //   	${pacientes.hora} -
-  //   	${pacientes.especialista} - 
-  //       ${pacientes.paciente} - 
-  //        ${pacientes.rut} - 
-  //       ${pacientes.prevision} 
-  //        </p>`)
-  // });
-
   //imprimir listado de todo los paciente del centro medico
   let todosLosPacientes = traumatologia.concat(radiologia, dental);
   document.write("<br><br> Todos los pacientes del centro medico: <br> <br>")
   todosLosPacientes.forEach(function(nombre) {
     document.write(nombre.paciente + "<p></p>")
   })
-
 
   //Agregar código para el desafio 2 aquí
 
