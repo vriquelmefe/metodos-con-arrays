@@ -126,7 +126,7 @@
 
   //Agregar código para el desafio 2 aquí
 
-  //agregar pacientes a la tabla de traumatologia
+  //1.- Agregar pacientes a la tabla de traumatologia
   traumatologia.push({
     hora: '09:00',
     especialista: 'RENE POBLETE',
@@ -179,21 +179,37 @@
     }
     return 0;
   });
-  //eliminar el primer y ultimo paciente de radiologia
+  //2.- Eliminar el primer y ultimo paciente de radiologia
   radiologia.shift();
   radiologia.pop();
   //
-  //imprimir tabla Dental separada por guion y parrafo entremedio
+  //3.- Imprimir tabla Dental separada por guion y parrafo entremedio
   dental.map(consulta => {
     document.write(`<p>${[consulta.hora, consulta.especialista, consulta.paciente, consulta.rut, consulta.prevision].join(' - ')} </p>`);
   });
 
-  //imprimir listado de todo los paciente del centro medico
+  //4.- Imprimir listado de todo los paciente del centro medico
   let todosLosPacientes = traumatologia.concat(radiologia, dental);
   document.write("<br><br> Todos los pacientes del centro medico: <br> <br>")
   todosLosPacientes.forEach(function(nombre) {
     document.write(nombre.paciente + "<p></p>")
   })
+
+  //5.- Filtrar paciente dental con isapre
+  const pacientesDeDentalConIsapre = dental.filter((paciente) => paciente.prevision == 'ISAPRE');
+  document.write(`<p><b>Paciente Dental con ISAPRE :</b></p>`);
+  pacientesDeDentalConIsapre.forEach(function(paciente) {
+    let pacienteFiltradosDental = [paciente.paciente, paciente.prevision].join(' - ');
+    document.write(`<p>${pacienteFiltradosDental}</p>`)
+  })
+
+  //6.- Filtrar paciente con FONASA de traumatologia
+  const pacientesDeDentalConFonasa = traumatologia.filter((paciente) => paciente.prevision == 'FONASA');
+  document.write(`<p><b>Paciente Traumatologia con FONASA :</b></p>`);
+  pacientesDeDentalConFonasa.forEach(function(paciente) {
+    let pacienteFiltradosTrauma = [paciente.paciente, paciente.prevision].join(' - ');
+    document.write(`<p>${pacienteFiltradosTrauma}</p>`);
+  });
 
   //Agregar código para el desafio 2 aquí
 
